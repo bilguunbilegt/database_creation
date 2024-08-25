@@ -105,7 +105,46 @@ ID | First Name | Last Name | Gender
 PASS
 ok  	database_creation	0.256s
 ```
+### Adding Multiple CSV Files to the Database as Separate Tables
 
+If you want to add other CSV files into the database as separate tables, you can follow a similar approach as with the first CSV file. The steps would include:
+
+1. **Define the Schema for Each New Table**: Create a schema for each table that corresponds to the structure of each CSV file.
+2. **Populate the Tables from CSV Files**: Read each CSV file, then populate the respective table in the database.
+3. **Query and Manage Data**: You can run queries across the multiple tables and join them if necessary, depending on the relationships between the data.
+
+### Example: Adding 5 CSV Files as Separate Tables
+
+Let’s say you have the following CSV files:
+- `IMDB-movies.csv`
+- `IMDB-directors.csv`
+- `IMDB-movies_genres.csv`
+- `IMDB-directors_genres.csv`
+- `IMDB-roles.csv`
+
+Each of these CSV files will be converted into a separate table in the SQLite database.
+
+### Step-by-Step Process
+
+1. **Define the Schemas**:
+   - You will create a table for each CSV file, ensuring the structure matches the columns of the CSV file.
+   - For example:
+     - `IMDB-movies.csv` -> `movies` table
+     - `IMDB-directors.csv` -> `directors` table
+     - `IMDB-movies_genres.csv` -> `movies_genres` table
+     - `IMDB-directors_genres.csv` -> `directors_genres` table
+     - `IMDB-roles.csv` -> `roles` table
+    
+### Further Enhancements
+
+1. **Foreign Key Constraints**: 
+   - You can enforce relationships between tables using foreign keys. For instance, the `ratings` and `reviews` tables should reference the `movies` table by the `movie_id`.
+
+2. **Joins for Complex Queries**: 
+   - Once the data is loaded into the database, you can run complex queries using SQL joins to retrieve data across multiple tables. For example, you might join the `movies` table with `directors` and `genres` to get detailed information about a movie.
+
+3. **Normalization**: 
+   - Ensure that your data is normalized to avoid duplication. For example, if multiple movies share the same genre, normalize this by storing the genre in a separate table and using foreign keys.
 
 ### Author
 
