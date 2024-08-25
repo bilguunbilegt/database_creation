@@ -105,7 +105,7 @@ ID | First Name | Last Name | Gender
 PASS
 ok  	database_creation	0.256s
 ```
-### Adding Multiple CSV Files to the Database as Separate Tables
+### Future Enhancement by Adding Multiple CSV Files to the Database as Separate Tables
 
 If you want to add other CSV files into the database as separate tables, you can follow a similar approach as with the first CSV file. The steps would include:
 
@@ -135,7 +135,7 @@ Each of these CSV files will be converted into a separate table in the SQLite da
      - `IMDB-directors_genres.csv` -> `directors_genres` table
      - `IMDB-roles.csv` -> `roles` table
     
-### Further Enhancements
+### Further Development
 
 1. **Foreign Key Constraints**: 
    - You can enforce relationships between tables using foreign keys. For instance, the `ratings` and `reviews` tables should reference the `movies` table by the `movie_id`.
